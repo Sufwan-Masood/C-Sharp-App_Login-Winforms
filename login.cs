@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 namespace CheckListBox
-{   
+{
     public partial class login : Form
     {
         string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
@@ -61,9 +61,10 @@ namespace CheckListBox
             //    Form1 form = new Form1();
             //    form.Show();
             //}
-            if (Regex.IsMatch(textBox1.Text, pattern) )
+            if (Regex.IsMatch(textBox1.Text, pattern))
             {
-                if (textBox2.Text == "admin") {
+                if (textBox2.Text == "admin")
+                {
                     Form1 form = new Form1();
                     form.Show();
                 }
@@ -73,7 +74,7 @@ namespace CheckListBox
                 }
 
             }
-            
+
             else
             {
                 MessageBox.Show("Please Enter a regular expression Email in ID field\nDefault ID: admin@form.com", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);

@@ -90,6 +90,7 @@
             textBox2.Size = new Size(331, 33);
             textBox2.TabIndex = 2;
             textBox2.TextAlign = HorizontalAlignment.Center;
+            textBox2.UseSystemPasswordChar = true;
             textBox2.Leave += textBox2_Leave;
             // 
             // errorProvider1
