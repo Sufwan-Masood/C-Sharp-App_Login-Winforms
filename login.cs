@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace CheckListBox
-{
+{   
     public partial class login : Form
     {
+        string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
         public login()
         {
             InitializeComponent();
@@ -49,14 +52,31 @@ namespace CheckListBox
         {
             errorProvider1.Clear();
             errorProvider2.Clear();
-            if (textBox1.Text != "admin" || textBox2.Text != "admin")
+            //if (textBox1.Text != "admin" || textBox2.Text != "admin")
+            //{
+            //    MessageBox.Show("Please Enter Correct Credentials");
+            //}
+            //else
+            //{
+            //    Form1 form = new Form1();
+            //    form.Show();
+            //}
+            if (Regex.IsMatch(textBox1.Text, pattern) )
             {
-                MessageBox.Show("Please Enter Correct Credentials");
+                if (textBox2.Text == "admin") {
+                    Form1 form = new Form1();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Correct Password\nDefault Password: admin", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                }
+
             }
+            
             else
             {
-                Form1 form = new Form1();
-                form.Show();
+                MessageBox.Show("Please Enter a regular expression Email in ID field\nDefault ID: admin@form.com", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
 
         }
